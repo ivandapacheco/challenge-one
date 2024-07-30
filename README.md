@@ -1,5 +1,7 @@
 # Encriptador de Texto
 
+![Encriptador de Texto](assets/logo-alura.png)
+
 ## Descripción
 
 **Encriptador de Texto** es una aplicación web que permite encriptar y desencriptar mensajes de manera sencilla y rápida. Utiliza un sistema de sustitución de vocales por sílabas específicas, lo que hace que los mensajes sean difíciles de leer sin desencriptar. Ideal para mantener la privacidad de tus comunicaciones.
