@@ -3,9 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link al archivo css -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Link de Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <title>Encriptador de Texto</title>
 </head>
-<body>
-    
+
+<body class="body">
+   <header class="header">
+        <!-- Logo de Alura -->
+        <div class="">
+            <img src="assets/logo-alura.png" alt="Logo de Alura Latam">
+        </div>
+
+        <!-- Titulo de página -->
+        <div class="title">
+            <h1>Encriptador de Texto</h1>
+        </div>
+
+   </header>
+
+    <main class="main">
+        <!-- Campo de texto a encriptar o a desencriptar -->
+        <div class="main__seccion__texto">
+
+            <div class="main__texto">
+                <textarea id="texto" class="main__texto__campo"  name="texto" rows="12" cols="" placeholder="Escribe el texto aquí..." autofocus></textarea>
+
+                <p class="main_texto__parrafo">
+                    <i class="fas fa-info-circle"></i>
+                    Solo letras minúsculas y sin tildes
+                </p>
+            </div>
+
+            <div class="main__button">
+                <button class="button button__encriptar" onclick="encriptarTexto()" >
+                    <i class="fas fa-lock"></i>
+                    Encriptar
+                </button>
+                <button class="button button__desencriptar" onclick="desencriptarTexto()" >
+                    <i class="fas fa-unlock"></i>
+                    Desencriptar
+                </button>
+            </div>
+        </div>
+
+        <!-- Campo de texto encriptado / desepcriptado -->
+        <div class="main__seccion__resultado">
+            <div id="imagenMuneco">
+                <div class="">
+                    <img src="assets/muñeco-no-text.png" class="main__seccion__resultado__img" alt="Muñeco con una lupa">
+                </div>
+                <div class="main__seccion__resultado__texto">
+                    <p class="bold" >Ningún mensaje fue encontrado</p>
+                    <p class="" >Escriba un mensaje para encriptar o desencriptar</p>
+                </div>
+            </div>
+
+
+            <!-- Solo aparecerá cuando se clickee "encriptar()" -->
+             <div class=" display-none" id="textArea">
+                 <textarea class="texto__campo" id="textoEncriptado" name="textoEncriptado" rows="12" cols="" readonly></textarea>
+       
+                 <div class="">
+                     <button class="button" id="copyButton" onclick="copiarTexto()" >
+                        <i class="fas fa-copy"></i>
+                        Copiar
+                    </button>
+                 </div>
+             </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Todos los derechos reservados | Desarrollado por: <a href="">Ivanda Pacheco</a></p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/ivanda-pacheco/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/ivandapacheco" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
