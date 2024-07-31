@@ -52,6 +52,12 @@
 ### Vista Principal
 ![Vista Principal](assets/screenshot-main.png)
 
+## Despliegue
+
+Puedes probar la aplicación en vivo en el siguiente enlace:  
+[![Encriptador de Texto](https://img.shields.io/badge/Encriptador-Online-brightgreen?style=for-the-badge&logo=appveyor)](https://challenge-one-ten.vercel.app/)
+
+
 ## Contacto
 
 Desarrollado por [Ivanda Pacheco](https://www.linkedin.com/in/ivanda-pacheco/). Puedes encontrarme en:
