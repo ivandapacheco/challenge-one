@@ -30,6 +30,7 @@
   max-width: 1500px;
   margin: auto;
   font-family: var(--font-family);
+  scroll-behavior: smooth;
 }
 
 .header {
@@ -172,6 +173,16 @@
 
 .button__encriptar:hover {
   background-color: rgba(10, 56, 113, .9);
+}
+.button-limpiar{
+  color:#ff0000;
+  background-color: var(--secondary-color);
+  border: solid 1px var(--text-color);
+  font-size: var(--font-size);
+  margin: 5px;
+  padding: 6px 6px ;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 /* Estilos para dispositivos móviles */

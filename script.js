@@ -24,10 +24,16 @@ const desencriptar = (texto) => {
         .replace(/ufat/g, "u");
 };
 
-// Mostrar mensaje temporal
-const mostrarMensajeTemporal = (mensaje) => {
-    textoOriginal.value = mensaje;
-    setTimeout(() => textoOriginal.value = "", 3000);
+// Mostrar mensaje temporal en un textarea específico
+const mostrarMensajeTemporal = (mensaje, textarea) => {
+    
+    // Mostrar el mensaje temporal
+    textarea.value = mensaje;
+    setTimeout(() => {
+        textoOriginal.value = ""; 
+        textoOriginal.focus();
+    }, 3000);
+    
 };
 
 // Actualizar visibilidad de secciones
@@ -46,13 +52,16 @@ function encriptarTexto() {
     const texto = textoOriginal.value;
 
     if (!/[aeiou]/i.test(texto)) {
-        mostrarMensajeTemporal("Oops. No se pudo encriptar tu mensaje 😔");
+        mostrarMensajeTemporal("Oops. No se pudo encriptar tu mensaje 😔", textoOriginal);
         return;
     }
 
     textoOriginal.value = "";
     textoEncriptado.value = encriptar(texto);
     actualizarVisibilidad(true);
+
+    textoEncriptado.focus();
+
 }
 
 // Desencriptar texto
@@ -60,13 +69,16 @@ function desencriptarTexto() {
     const texto = textoOriginal.value;
 
     if (!/(enter|imes|ai|ober|ufat)/.test(texto)) {
-        mostrarMensajeTemporal("Oops. No se pudo desencriptar tu mensaje 😔");
+        mostrarMensajeTemporal("Oops. No se pudo desencriptar tu mensaje 😔", textoOriginal);
         return;
     }
 
     textoOriginal.value = "";
     textoEncriptado.value = desencriptar(texto);
     actualizarVisibilidad(true);
+
+    textoEncriptado.focus();
+
 }
 
 // Copiar texto al portapapeles
@@ -81,3 +93,10 @@ function copiarTexto() {
     }).catch((err) => console.error('Error al copiar el texto: ', err));
 }
 
+function limpiarTextoEncriptado() {
+    textoEncriptado.value = "";
+    mostrarMensajeTemporal("Texto eliminado!✅", textoEncriptado);
+    textoOriginal.focus();
+    setTimeout(() => { actualizarVisibilidad(false)}, 3000);
+    
+}
