@@ -20,6 +20,18 @@
 - **Desencriptación de Texto**: Restaura el mensaje original a partir del texto encriptado.
 - **Copia al Portapapeles**: Copia el texto encriptado o desencriptado con un solo clic.
 - **Interfaz Responsiva**: Diseño adaptable para dispositivos móviles y de escritorio.
+- **Temas Personalizables**: Cambia entre tres esquemas de color predefinidos (Oscuro, Cálido, Fresco) para ajustar la apariencia de la aplicación según tu preferencia.
+
+## Uso de Temas
+
+### Cambiar el Esquema de Color
+
+1. **Selecciona un Tema**: Haz clic en el botón de selección de colores de la aplicación.
+2. **Elige una Opción de Color**: Se desplegará un menú con tres opciones de esquema de color. Puedes seleccionar entre:
+   - **Oscuro**: Un tema con tonos oscuros para una apariencia elegante y moderna.
+   - **Cálido**: Un esquema de colores cálidos para una sensación acogedora.
+   - **Fresco**: Un tema con tonos fríos para una apariencia relajante.
+3. **Restaurar Valores Predeterminados**: Si deseas volver a la configuración de colores original, haz clic en el botón de restaurar.
 
 ## Uso
 

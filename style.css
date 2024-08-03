@@ -263,7 +263,7 @@
   background-color: var(--secondary-color);
   border: solid 1px var(--text-color);
   font-size: var(--font-size);
-  margin: 5px;
+  margin: -5px;
   padding: 6px 6px ;
   border-radius: 5px;
   cursor: pointer;
