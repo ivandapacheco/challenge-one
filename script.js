@@ -5,6 +5,49 @@ const textoOriginal = document.getElementById('texto');
 const textoEncriptado = document.getElementById('textoEncriptado');
 const copyButton = document.getElementById('copyButton');
 
+const colorSchemes = {
+    1: {
+        // Opción 1: Tonos oscuros y elegantes
+        '--background-color': '#2E2E2E',
+        '--primary-color': '#1C4E80',
+        '--secondary-color': '#A0A0A0',
+        '--text-color': '#FFFFFF',
+        '--footer-bg-color': '#1C1C1C',
+        '--footer-text-color': '#C0C0C0',
+        '--link-hover-color': '#1FA1A1',
+    },
+    2: {
+        // Opción 2: Colores cálidos
+        '--background-color': '#FFF5E1',
+        '--primary-color': '#D9534F',
+        '--secondary-color': '#FAD02E',
+        '--text-color': '#6D2C2C',
+        '--footer-bg-color': '#B85C38',
+        '--footer-text-color': '#FFFFFF',
+        '--link-hover-color': '#FBD3A4',
+    },
+    3: {
+        // Opción 3: Tonos fríos y modernos
+        '--background-color': '#E3F2FD',
+        '--primary-color': '#1565C0',
+        '--secondary-color': '#BBDEFB',
+        '--text-color': '#0D47A1',
+        '--footer-bg-color': '#1E88E5',
+        '--footer-text-color': '#FFFFFF',
+        '--link-hover-color': '#B3E5FC',
+    },
+    default: {
+        // Valores por defecto
+        '--background-color': '#E5E5E5',
+        '--primary-color': '#0A3871',
+        '--secondary-color': '#D8DFE8',
+        '--text-color': '#0A3871',
+        '--footer-bg-color': '#333',
+        '--footer-text-color': '#fff',
+        '--link-hover-color': '#32c2ae',
+    }
+};
+
 // Funciones de encriptación y desencriptación
 const encriptar = (texto) => {
     return texto
@@ -99,4 +142,12 @@ function limpiarTextoEncriptado() {
     textoOriginal.focus();
     setTimeout(() => { actualizarVisibilidad(false)}, 3000);
     
+}
+
+function changeColorScheme(option) {
+    const selectedScheme = colorSchemes[option] || colorSchemes['default'];
+
+    Object.keys(selectedScheme).forEach(key => {
+        document.documentElement.style.setProperty(key, selectedScheme[key]);
+    });
 }
