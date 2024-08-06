@@ -15,6 +15,7 @@
   --font-size: 1rem;
   --border-radius: 10px;
   --button-width: 180px;
+  --loader-content: "Encriptando..."
 }
 
 *,
@@ -271,6 +272,38 @@
 .button-limpiar:hover{
   color: red;
 }
+.loader{
+  font-size: 3rem;
+  color: var(--primary-color);
+  display: none; 
+  font-weight: bold;
+  position: relative;
+}
+.loader:after{
+  content: var(--loader-content);
+  position: relative;
+  z-index: 5;
+}
+.loader:before{
+  content: '';
+  height: 6px;
+  border: 1px solid;
+  border-radius: 10px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  background: linear-gradient(var(--text-color) 100%, transparent 0) no-repeat;
+  background-size: 0% auto;
+  animation: 2.8s lineGrow linear ;
+}
+.absolute{
+  top: 30vh;
+  left: 40vw  ;
+  position: absolute;
+}
+
+
+@keyframes lineGrow {to {  background-size: 100% auto}}
 
 /* Estilos para dispositivos móviles */
 @media (max-width: 767px) {
@@ -281,6 +314,19 @@
   .main__button {
     justify-content: center;
   }
+  .absolute{
+    top: 40vh;
+    left: 30vw ;
+  }
+  .header{
+    margin-top: 20px;
+  }
+  .logo{
+    width: 100px;
+  }
+  .loader{
+    font-size: 2.5rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -288,6 +334,18 @@
     align-items: center;
     flex-direction: column;
   }
+  .absolute{
+    top: 30vh;
+    left: 10vw ;
+  }
+  
+  .logo{
+    width: 70px;
+  }
+  .loader{
+    font-size: 2rem;
+  }
+ 
 }
 
 

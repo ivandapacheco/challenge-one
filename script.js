@@ -4,6 +4,10 @@ const textArea = document.getElementById('textArea');
 const textoOriginal = document.getElementById('texto');
 const textoEncriptado = document.getElementById('textoEncriptado');
 const copyButton = document.getElementById('copyButton');
+const loader = document.getElementById('loader');
+const header = document.querySelector('header');
+const main = document.querySelector('main');
+const footer = document.querySelector('footer');
 
 const colorSchemes = {
     1: {
@@ -91,6 +95,21 @@ const actualizarVisibilidad = (mostrarResultado) => {
 };
 
 // Encriptar texto
+// function encriptarTexto() {
+//     const texto = textoOriginal.value;
+
+//     if (!/[aeiou]/i.test(texto)) {
+//         mostrarMensajeTemporal("Oops. No se pudo encriptar tu mensaje 😔", textoOriginal);
+//         return;
+//     }
+
+//     textoOriginal.value = "";
+//     textoEncriptado.value = encriptar(texto);
+//     actualizarVisibilidad(true);
+
+//     textoEncriptado.focus();
+
+// }
 function encriptarTexto() {
     const texto = textoOriginal.value;
 
@@ -99,13 +118,26 @@ function encriptarTexto() {
         return;
     }
 
-    textoOriginal.value = "";
-    textoEncriptado.value = encriptar(texto);
-    actualizarVisibilidad(true);
+    // Mostrar el loader
+    loader.style.display = 'inline-block';
+    header.style.filter = 'blur(5px)';
+    main.style.filter = 'blur(5px)';
+  
 
-    textoEncriptado.focus();
-
+    // Oculta el loader después de 3 segundos   
+    setTimeout(() => {
+        textoOriginal.value = "";
+        textoEncriptado.value = encriptar(texto);
+        actualizarVisibilidad(true);
+        textoEncriptado.focus();
+        loader.style.display = "none";
+        header.style.filter = 'none';
+        main.style.filter = 'none';
+        
+    }, 3000); // 3000 milisegundos = 3 segundos
 }
+
+
 
 // Desencriptar texto
 function desencriptarTexto() {
@@ -116,11 +148,23 @@ function desencriptarTexto() {
         return;
     }
 
-    textoOriginal.value = "";
-    textoEncriptado.value = desencriptar(texto);
-    actualizarVisibilidad(true);
+    loader.style.setProperty('--loader-content', '"Desencriptando..."');
+      // Mostrar el loader
+      loader.style.display = 'inline-block';
+      header.style.filter = 'blur(5px)';
+      main.style.filter = 'blur(5px)';
 
-    textoEncriptado.focus();
+     // Oculta el loader después de 3 segundos   
+     setTimeout(() => {
+        textoOriginal.value = "";
+        textoEncriptado.value = desencriptar(texto);
+        actualizarVisibilidad(true);
+        textoEncriptado.focus();
+        loader.style.display = "none";
+        header.style.filter = 'none';
+        main.style.filter = 'none';
+        loader.style.setProperty('--loader-content', '"Encriptando..."');
+    }, 3000); // 3000 milisegundos = 3 segundos
 
 }
 
