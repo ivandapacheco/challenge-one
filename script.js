@@ -9,6 +9,7 @@ const header = document.querySelector('header');
 const main = document.querySelector('main');
 const footer = document.querySelector('footer');
 
+// Diferentees combinaciones de colores para los temas
 const colorSchemes = {
     1: {
         // Opción 1: Tonos oscuros y elegantes
@@ -94,22 +95,7 @@ const actualizarVisibilidad = (mostrarResultado) => {
     }
 };
 
-// Encriptar texto
-// function encriptarTexto() {
-//     const texto = textoOriginal.value;
 
-//     if (!/[aeiou]/i.test(texto)) {
-//         mostrarMensajeTemporal("Oops. No se pudo encriptar tu mensaje 😔", textoOriginal);
-//         return;
-//     }
-
-//     textoOriginal.value = "";
-//     textoEncriptado.value = encriptar(texto);
-//     actualizarVisibilidad(true);
-
-//     textoEncriptado.focus();
-
-// }
 function encriptarTexto() {
     const texto = textoOriginal.value;
 
@@ -195,3 +181,25 @@ function changeColorScheme(option) {
         document.documentElement.style.setProperty(key, selectedScheme[key]);
     });
 }
+
+
+function validarTexto(event) {
+    // Obtiene el valor del evento
+    const charCode = event.charCode || event.keyCode;
+    const char = String.fromCharCode(charCode);
+
+    // Solo permite letras minusculas y puntos y comas
+    const regex = /^[a-z.,]+$/;
+
+    // Si el carácter no coincide con la expresión regular, se previene su entrada
+    if (!regex.test(char)) {
+        event.preventDefault();
+    }
+}
+// Limpia el textarea al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    if (textoOriginal) {
+        textoOriginal.value = ""; 
+    }
+});
+

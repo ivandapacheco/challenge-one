@@ -32,7 +32,9 @@
         <div class="main__seccion__texto">
 
             <div class="main__texto">
-                <textarea id="texto" class="main__texto__campo"  name="texto" rows="12" cols="" placeholder="Escribe el texto aquí..." autofocus></textarea>
+                <textarea id="texto" class="main__texto__campo"  name="texto" rows="12" cols="" 
+                    placeholder="Escribe el texto aquí..."  autofocus onkeypress="validarTexto(event)">
+                </textarea>
 
                 <p class="main_texto__parrafo">
                     <i class="fas fa-info-circle"></i>
