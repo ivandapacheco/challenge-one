@@ -74,14 +74,12 @@ const desencriptar = (texto) => {
 
 // Mostrar mensaje temporal en un textarea específico
 const mostrarMensajeTemporal = (mensaje, textarea) => {
-    
     // Mostrar el mensaje temporal
     textarea.value = mensaje;
     setTimeout(() => {
         textoOriginal.value = ""; 
         textoOriginal.focus();
-    }, 3000);
-    
+    }, 3000);  
 };
 
 // Actualizar visibilidad de secciones
@@ -95,7 +93,6 @@ const actualizarVisibilidad = (mostrarResultado) => {
     }
 };
 
-
 function encriptarTexto() {
     const texto = textoOriginal.value;
 
@@ -108,7 +105,6 @@ function encriptarTexto() {
     loader.style.display = 'inline-block';
     header.style.filter = 'blur(5px)';
     main.style.filter = 'blur(5px)';
-  
 
     // Oculta el loader después de 3 segundos   
     setTimeout(() => {
@@ -170,8 +166,7 @@ function limpiarTextoEncriptado() {
     textoEncriptado.value = "";
     mostrarMensajeTemporal("Texto eliminado!✅", textoEncriptado);
     textoOriginal.focus();
-    setTimeout(() => { actualizarVisibilidad(false)}, 3000);
-    
+    setTimeout(() => { actualizarVisibilidad(false)}, 3000);   
 }
 
 function changeColorScheme(option) {
@@ -184,19 +179,18 @@ function changeColorScheme(option) {
 
 
 function validarTexto(event) {
-    // Obtiene el valor del evento
     const charCode = event.charCode || event.keyCode;
     const char = String.fromCharCode(charCode);
 
     // Solo permite letras minusculas y puntos y comas
-    const regex = /^[a-z.,]+$/;
+    const regex = /^[a-z.,\s]+$/;
 
     // Si el carácter no coincide con la expresión regular, se previene su entrada
     if (!regex.test(char)) {
         event.preventDefault();
     }
 }
-// Limpia el textarea al cargar la página
+
 document.addEventListener('DOMContentLoaded', () => {
     if (textoOriginal) {
         textoOriginal.value = ""; 
